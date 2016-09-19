@@ -1,0 +1,228 @@
+/*
+  core presentation files
+*/
+
+* {
+  font-weight: normal;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-family: 'Segoe UI Light', sans-serif;
+  min-height: 740px;
+  color: #dee;
+  background: #003;
+  background: radial-gradient(ellipse at center, #006 0%,#001 100%);
+}
+
+.step {
+  position: relative;
+  box-sizing: border-box;
+  width: 1000px;
+  padding: 40px;
+  margin: 20px auto;
+  font-size: 2.6em;
+  line-height: 1.2;
+  margin: 0;
+  opacity: 0.05; /* change this to something better when slides are complete */
+  transition: opacity 1s;
+}
+
+.step.active { opacity: 1 }
+
+.step .notes {
+  display: none;
+}
+
+h1, h2, h3 {
+  font-family: impact, sans-serif;
+  margin-bottom: 0.5em;
+}
+
+h1 + h2 {
+  margin-top: -0.6em;
+}
+
+h1 {
+  font-size: 1.3em;
+}
+
+h2 {
+  font-size: 1.15em;
+}
+
+h2.big {
+  font-size: 6em;
+}
+
+h3 {
+  font-size: 1;
+}
+
+ul, ol {
+  padding: 0;
+  margin: 1em 0;
+}
+
+ul {
+  list-style-type: disk;
+}
+
+ol {
+  list-style-type: numeric;
+}
+
+li {
+  padding: 0;
+  margin: 0 0 0.5em 2em;
+}
+
+.cols {
+  column-count: 2;
+  column-gap: 50px;
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:after {
+  display: block;
+  content: attr(href);
+  font-size: 0.5em;
+  color: #ff9;
+}
+
+blockquote {
+  font-size: 2.5em;
+  font-style: italic;
+  text-align: center;
+  color: #ff0;
+}
+
+circle {
+  stroke-width: 5px;
+  stroke: #fff;
+  fill: rgba(201,201,255,0.2);
+}
+
+line {
+  stroke-width: 5px;
+  stroke: #fff;
+}
+
+line.dash {
+  stroke-dasharray: 10, 5;
+  stroke-dashoffset: 0%;
+}
+
+.active line.dash {
+  animation: dashmove 4s linear infinite;
+}
+
+text {
+  font-size: 1em;
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  fill: #fff;
+}
+
+text.label {
+  font-size: 0.5em;
+}
+
+.fancy {
+  font-size: 3em;
+  line-height: 1;
+  margin: 0 1em;
+}
+
+.active .fancy {
+  animation: glow 1.5s linear infinite;
+}
+
+.active .spin {
+  transform-origin: 50% 50%;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes dashmove {
+  0% { stroke-dashoffset: 0%; }
+  50% { stroke-dashoffset: 10%; }
+  100% { stroke-dashoffset: 0%; }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+	}
+  100% {
+    transform: rotate(360deg);
+	}
+}
+
+@keyframes glow {
+  0% {
+    color: #99f;
+		text-shadow: 0 0 0 #fff;
+	}
+  50% {
+    color: #fff;
+    text-shadow: 0 0 50px #fff;
+	}
+  100% {
+    color: #99f;
+    text-shadow: 0 0 0 #fff;
+	}
+}

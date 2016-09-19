@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The Future of Mobile: Native vs Progressive Web Apps</title>
+  <meta name="description" content="A presentation given at TechExeter on 8 October, 2016" />
+  <meta name="author" content="Craig Buckler" />
+
+  <meta name="viewport" content="width=device-width,shrink-to-fit=no,user-scalable=yes,initial-scale=1,minimum-scale=1,minimal-ui">
+
+  <link href="css/impress.css" rel="stylesheet" />
+  <link href="css/prism.css" rel="stylesheet" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="shortcut icon" href="favicon.png" />
+
+</head>
+<body>
+
+<!--
+data-x, data-y, data-z - the center of step element in pixels; default 0.
+data-rotate-x, data-rotate-y, 'data-rotate-z, data-rotate - rotation of around axis in degrees (data-rotate = data-rotate-z)
+data-scale - defines the scale of step element; default value is 1
+
+data-x="1000" data-y="0" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="45" data-rotate-z="0"
+
+TEMPLATE
+<div id="" class="step" data-x="0" data-y="0" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0">
+	<h2></h2>
+
+	<div class="notes"></div>
+</div>
+-->
+
+<div id="impress">
+
+  <div id="title" class="step" data-x="0" data-y="0" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0">
+    <h1>The Future of Mobile</h1>
+    <h2>Native vs Progressive Web Apps</h2>
+
+    <p>By Craig Buckler</p>
+    <p>craigbuckler.com</p>
+    <p>@craigbuckler</p>
+
+    <div class="notes">Hi. My name's Craig Buckler
+
+So I have the doomed post-lunch slot when
+everyone's half asleep!
+
+Over the next 20 minutes we're going to examine
+options available to mobile app developers
+    </div>
+  </div>
+
+  <div id="devoptions" class="step" data-x="1000" data-y="0" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0">
+    <h2>Mobile development options</h2>
+    <svg viewBox="0 0 425 300" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="150" cy="150" r="140" />
+      <circle cx="275" cy="150" r="140" />
+      <text x="70" y="150">native</text>
+      <text x="355" y="150">web</text>
+      <text x="212" y="150">hybrid</text>
+
+      <image x="50" y="40" width="80" height="80" xlink:href="images/android.png" />
+      <image x="50" y="180" width="80" height="80" xlink:href="images/apple.png" />
+
+      <image x="290" y="40" width="80" height="80" xlink:href="images/chrome.png" />
+      <image x="290" y="180" width="80" height="80" xlink:href="images/safari.png" />
+    </svg>
+
+    <div class="notes">Today, mobile developers generally have three choices
+
+first, there's native app development:
+
+developing programs for the device itself generally in Swift, Objective-C or Java for iOS or Android
+
+it used to be a lot more diverse but I don't think anyone's bothering to support Blackberry or Windows these days!
+
+Do we have any native app developers in?
+
+On the flip side we have web apps.
+
+This is a single application served from the web which works on any device. In theory.
+
+Any web developers in?
+OK, just so you know I'm totally biased - I'm firmly in the web circle.
+
+In the middle we have hybrid app development tools such as
+React Native, Cordova, PhoneGap, Appcelerator.
+
+You generally use web technologies but compile them to multiple native platforms.
+
+Which gives all the pros and cons of both.
+
+Anyone developing hybrid apps?
+
+Good. Those hybrid people scare me!
+    </div>
+  </div>
+
+
+	<div id="benefitswebusers" class="step" data-x="1000" data-y="1000" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="45">
+		<h2>User benefits of the web</h2>
+
+		<ul>
+      <li>easy to discover</li>
+			<li>no installation or updates</li>
+      <li>secure HTTPS</li>
+			<li>sandboxed execution</li>
+			<li>linkable URLs</li>
+		</ul>
+
+		<div class="notes">There are situations where native apps are essential but I'm a web guy.
+
+The web has many benefits for users
+
+- you can find a web app via Google or any search engine
+
+- you can bookmark it - there's nothing to install or update
+
+- if you're using HTTPS no one can intercept communication between you and the service
+
+- web apps run sand-boxed.
+The can't access your device files or hardware unless you grant access at the time it needs it.
+
+Anyone using Pokemon Go?
+Have a look at the permissions -
+as far as I know it can record audio and video and access all your files without telling you.
+
+Just saying that if the government wanted to spy on you it would be a near perfect solution!
+
+- finally
+you can link to a web app with a single URL which can also pass state and other information.
+    </div>
+	</div>
+
+
+	<div id="benefitswebdev" class="step" data-x="0" data-y="1000" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="90">
+		<h2>Developer benefits of the web</h2>
+
+		<ul>
+			<li>single responsive application</li>
+      <li>use any server language</li>
+      <li>easy to deploy and update</li>
+			<li>bypass the AppStores</li>
+		</ul>
+
+		<div class="notes">Being selfish and lazy there are many benefits for us developers
+
+- we need only create a single application
+
+- we can use media queries to target devices with different screen sizes
+
+- using any server language we choose
+
+- they're easy to deploy and maintain
+
+- and we can bypass all the AppStore nonsense
+our web apps can contain as much nudity and swearing as we like
+
+- they can lead to better user engagement
+
+very few users actively use or install native apps
+the majority of people use three apps on average
+and install none per month
+
+finding apps in an AppStore can be difficult
+
+while some can become incredibly popular very quickly
+the majority never reach beyond a few dozen installations
+
+Despite all these benefits, clients started saying this around 5 years ago
+    </div>
+	</div>
+
+  <div id="client" class="step" data-x="0" data-y="1000" data-z="0" data-scale="3" data-rotate-x="90" data-rotate-y="0" data-rotate-z="90">
+
+    <blockquote><p>"We want an app"</p></blockquote>
+
+    <div class="notes">"We want an app"
+
+It was a bit disheartening for developers like me
+I felt we'd escaped the confines of desktop development
+and were now being asked to return to a similar environment
+
+OK, so few clients knew the difference between a native or web app
+    </div>
+  </div>
+
+
+  <div id="questions" class="step" data-x="0" data-y="2000" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0">
+    <h2>Clients did know&hellip;</h2>
+
+    <ol>
+      <li>user retention - there's no icon?</li>
+      <li>it's not as snappy</li>
+      <li>it doesn't work offline</li>
+    </ol>
+
+    <div class="notes">but what they did know:
+
+user retention could be more difficult
+because web apps didn't have an icon on the user's home screen
+
+native apps seemed faster than web alternatives
+
+and also web apps didn't work offline.
+
+And that was the killer blow.
+
+So we prayed to the Internet overloads
+and our wishes were answered with 157 clunky meta tags
+to target multiple devices and resolutions
+
+and some APIs to handle things like
+touch, full-screen, battery status and geo-location
+
+but for offline functionality
+    </div>
+  </div>
+
+
+  <div id="appcache" class="step" data-x="1000" data-y="2000" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="180">
+    <h2>The web industry response:</h2>
+
+    <p class="fancy">AppCache</p>
+
+    <div class="notes">the gods told us to go forth
+and use AppCache
+
+and web developers rejoiced and gave thanks
+    </div>
+  </div>
+
+
+  <div id="appcachebad" class="step" data-x="1000" data-y="2000" data-z="0" data-scale="1" data-rotate-x="90" data-rotate-y="90" data-rotate-z="180">
+
+    <p>(AppCache was awful)</p>
+
+    <div class="notes">until they used AppCache and realised it was not good
+
+There were loads of problems:
+
+it was another cache to manage which was different to the browser cache
+
+there were storage space limitations
+
+files would always come from the cache even when you were online
+
+if one file needed updating you had to update them all
+
+if one failed to download the whole app could fail
+
+and it was really hard to develop
+    </div>
+  </div>
+
+
+  <div id="pwa-announce" class="step" data-x="3000" data-y="0" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0">
+
+    <h2>Google Chrome Dev Summit 2015</h2>
+
+    <p class="fancy">Progressive Web Apps</p>
+
+    <div class="notes">Fast forward to 2015
+
+Progressive Web Apps were announced in last year's Chrome Dev summit
+
+and everyone went 'ooo'
+    </div>
+  </div>
+
+
+  <div id="pwa" class="step" data-x="3000" data-y="500" data-z="0" data-scale="1" data-rotate-x="-45" data-rotate-y="0" data-rotate-z="0">
+
+    <h2>Progressive Web Apps</h2>
+
+    <ol>
+      <li>discoverable</li>
+      <li>installable</li>
+      <li>remain up-to-date</li>
+      <li>fast</li>
+      <li>work offline</li>
+    </ol>
+
+    <div class="notes">So what are they?
+
+think of it as an evolution beyond running an app in a browser tab
+
+The reason it's called progressive:
+the user experience will become better depending on the capabilities of the device.
+
+It's up to you how you implement them but, in general
+users get a native app-like experience.
+even though it's still a web application
+
+When you visit a progressive web app for the first time it downloads all the files it needs to run
+
+But when you visit a web app for the second time, the browser will prompt you to install it.
+
+This instantly adds an icon to your phone in a single click
+you don't have to go through the browser menu
+
+There's no hunting the AppStore, accepting permissions, installing, waiting
+then realising an app was rubbish because you've already tried it.
+
+When you click the icon, you see a splash screen as your app loads
+and it launches with whatever browser UI you decide is necessary
+
+They're fast.
+A cold launch following a phone reboot is a little slower that a native app because it's starting the browser
+but a warm start is generally faster than a native app
+
+And finally, they work offline and you have full control over the caching options.
+
+OK, so it's not a single technology - nothing is ever that simple
+
+so let's look at what you need...
+    </div>
+  </div>
+
+
+  <div id="pwa-manifest" class="step" data-x="4000" data-y="0" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="360">
+    <h2>An application manifest</h2>
+
+    <p>/manifest.json</p>
+
+    <pre><code class="language-javascript">{
+  "name": "CurEx",
+  "short_name": "CurEx",
+  "icons": [{
+      "src": "/images/curex-256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+  }],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#003300",
+  "theme_color": "#003300"
+}</code></pre>
+
+<p>link in your HTML &lt;head&gt;</p>
+
+<pre><code class="language-html">&lt;link rel=&quot;manifest&quot; href=&quot;/manifest.json&quot;&gt;</code></pre>
+
+    <div class="notes">The first step is easy and it's an application manifest.
+
+This is a JSON file in your application root which describes
+the name, colours, icons, orientation and other display options
+
+you can do things like hide the URL bar and go full-screen
+which could be useful for games
+
+You link to the manifest in your HTML head
+</div>
+  </div>
+
+
+  <div id="pwa-https" class="step" data-x="4000" data-y="1000" data-z="0" data-scale="1" data-rotate-x="45" data-rotate-y="0" data-rotate-z="360">
+    <h2 class="big">HTTPS</h2>
+
+    <div class="notes">Next, you must deliver your app over HTTPS - not HTTP.
+
+The reason for that will become evident soon
+but it should be a relatively easy step depending on your web host.
+
+There is an exception
+
+While you're developing, you can access any localhost port
+and it won't require HTTPS
+
+Chrome can also run with start-up parameters so you can set any URL
+</div>
+  </div>
+
+
+  <div id="pwa-serviceworker" class="step" data-x="4000" data-y="2000" data-z="0" data-scale="1" data-rotate-x="90" data-rotate-y="0" data-rotate-z="360">
+    <h2>Service Worker</h2>
+
+    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+
+      <text x="40" y="90" class="label">app</text>
+      <image x="10" y="100" width="60" height="60" xlink:href="images/app.png" />
+      <text x="190" y="90" class="label">service worker</text>
+      <image x="160" y="100" width="60" height="60" xlink:href="images/cog.png" class="spin" />
+      <text x="340" y="10" class="label">web</text>
+      <image x="310" y="20" width="60" height="60" xlink:href="images/globe.png" />
+      <text x="340" y="170" class="label">cache</text>
+      <image x="310" y="180" width="60" height="60" xlink:href="images/disk.png" />
+
+      <line x1="80" y1="130" x2="150" y2="130" class="dash" />
+      <line x1="230" y1="120" x2="310" y2="80" class="dash" />
+      <line x1="230" y1="140" x2="310" y2="180" class="dash" />
+    </svg>
+
+    <div class="notes">And the final piece of the puzzle is a service worker.
+
+This is a programmable proxy
+it intercepts your application's network calls and can either
+
+- return data from the web
+- or from the local cache.
+
+it's a standard web worker script which runs on a separate thread
+
+so it has no direct access to the page DOM or other objects and APIs.
+
+It must live in your web root because
+it can only cache assets in the same folder or lower.
+
+And service workers are the reason we need HTTPS.
+
+They do decide how a network call is handled
+
+Imaging what could happen if some nasty person managed to inject one into your site
+it would have full control and could serve whatever content it liked.
+</div>
+  </div>
+
+
+  <div id="pwa-sw-install" class="step" data-x="5000" data-y="0" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0">
+    <h2>Service Worker: installation event</h2>
+
+    <pre><code class="language-javascript line-numbers">self.addEventListener('install', function(e) {
+
+  e.waitUntil(
+    caches.open('mycache01').then(function(cache) {
+      return cache
+        .addAll([
+          '/',
+          '/index.html',
+          '/manifest.json',
+          '/css/app.css',
+          '/js/app.js',
+        ])
+        .then(function() { self.skipWaiting(); });
+    })
+  );
+
+}</code></pre>
+
+    <div class="notes">So again the service worker is a single JavaScript file which lives in your root.
+
+The browser reloads it every time you go online or it falls back to a cached version.
+
+It has a number of events you can create handlers for.
+
+And you should note it's all JavaScript promise based.
+which should make it easier to handle asynchronous calls
+but I'm not always convinced by that
+
+The first type is an installation event
+this occurs when the browser loads your app for the first time.
+
+Here, we use the CacheStorage API to open a cache named mycache01
+
+and we add the files we need to ensure the app works offline
+
+this is known as your application shell and should include the static assets such as css, javascript and images.
+
+it should also have your basic HTML template or page
+
+And note you should include all alternative URLs
+so we reference a single slash and index.html on lines 7 and 8
+even though they're the same thing.
+    </div>
+  </div>
+
+
+  <div id="pwa-sw-activate" class="step" data-x="5000" data-y="1000" data-z="0" data-scale="1" data-rotate-x="-30" data-rotate-y="0" data-rotate-z="0">
+    <h2>Service Worker: activation event</h2>
+
+    <pre><code class="language-javascript line-numbers">self.addEventListener('activate', function(e) {
+
+	e.waitUntil(
+		caches.keys().then(function(keyList) {
+			return Promise.all(keyList.map(function(key) {
+				if (key !== 'mycache01') {
+					return caches.delete(key);
+				}
+			}));
+		})
+	);
+
+	return self.clients.claim();
+
+});</code></pre>
+
+    <div class="notes">Next, we have the activate event which runs whenever the application launches.
+
+You may not need it.
+but a typical option is to remove old cached files.
+
+This fetches all the caches by name and deletes any which aren't mycache01.
+
+So if we ever update the application,
+we could call the cache a different name and your app will re-fetch all static assets.
+    </div>
+  </div>
+
+
+  <div id="pwa-sw-fetch" class="step" data-x="5000" data-y="2000" data-z="0" data-scale="1" data-rotate-x="-60" data-rotate-y="0" data-rotate-z="0">
+    <h2>Service Worker: fetch event</h2>
+
+    <pre><code class="language-javascript line-numbers">self.addEventListener('fetch', function(e) {
+
+  e.respondWith(
+    caches.open('mycache01').then(function(cache) {
+      return fetch(e.request).then(function(response) {
+        cache.put(e.request.url, response.clone());
+        return response;
+      });
+    })
+  );
+
+});</code></pre>
+
+    <div class="notes">Finally, we have the fetch event
+
+This intercepts file and Ajax requests and responds accordingly.
+
+It uses the Fetch API which is effectively the next version of XMLHttpRequest
+
+Again, you can do what you like,
+but a simple option is to cache these responses so they're available offline.
+
+That's what our service worker does here
+
+And we're done.
+    </div>
+  </div>
+
+
+  <div id="pwa-sw-register" class="step" data-x="5000" data-y="3000" data-z="0" data-scale="1" data-rotate-x="-90" data-rotate-y="0" data-rotate-z="0">
+    <h2>app.js: register service worker</h2>
+
+    <pre><code class="language-javascript line-numbers">// register service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/service-worker.js')
+    .then(function() { console.log('service worker registered'); });
+}</code></pre>
+
+    <div class="notes">The next step is to load our service worker in our application's main javascript file
+
+We can detect the browser supports service workers and register it.
+</div>
+  </div>
+
+
+  <div id="pwa-sw-cache" class="step" data-x="5000" data-y="4000" data-z="0" data-scale="1" data-rotate-x="-135" data-rotate-y="0" data-rotate-z="0">
+    <h2>app.js: use cached data</h2>
+
+    <pre><code class="language-javascript line-numbers">var url = 'https://api.call.io/';
+
+// is data in cache?
+if ('caches' in window) {
+  caches.match(url).then(function(response) {
+    if (response) {
+      response.json().then(updateApp);
+    }
+  });
+}
+
+// make new call
+var req = new XMLHttpRequest();
+req.open('GET', url);</code></pre>
+
+    <div class="notes">So our service worker was simple and just cached a response.
+
+What we can do is check whether a response is cached before making an Ajax call.
+
+In line 7 we do exactly that
+it passes a cached JSON result to an updateApp function which updates our page accordingly.
+
+So what happens is our app is instantly available if we have cached data
+
+But we can then make a real web service call to check if there's any updates.
+
+So this caching policy is probably the hardest part of designing your web app.
+deciding when to cache and at what point you use the cached version can be tricky.
+
+Enough of the theory - let's look at a demonstration.
+    </div>
+  </div>
+
+
+  <div id="curex" class="step" data-x="6000" data-y="0" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0">
+    <h2>CurEx: Currency Exchange PWA</h2>
+
+    <img src="images/curex.png" style="width:25%;height:auto;float:left;margin-right:2em;" alt="curex" />
+
+    <ul>
+      <li>looks app-like</li>
+      <li>converts between currencies</li>
+      <li>loads and caches the latest rates</li>
+      <li>uses the last rates when offline</li>
+      <li>github.com/craigbuckler/curex</li>
+    </ul>
+
+    <div class="notes">So I've created a simple currency conversion tool
+
+This started life as a simple client-side JavaScript application
+which uses localStorage to save state
+
+it downloads the latest exchange rates from a web service using Ajax
+
+I then enhanced it with a service worker to
+cache the essential HTML, CSS and JavaScript files
+it also caches the latest exchange rates when it gets them
+
+So when it first loads, the cached rates are shown instantly
+but it will try to get current figures when you're online
+and tries again every six hours
+
+Rates don't normally change too much from day to day
+
+not unless something unusual happens like your country starts a war
+votes to leave the EU
+or elects an inept president
+    </div>
+  </div>
+
+
+  <div id="curex-demo" class="step" data-x="6000" data-y="1500" data-z="0" data-scale="2" data-rotate-x="0" data-rotate-y="0" data-rotate-z="90">
+    <h2>DEMONSTRATION</h2>
+
+    <div class="notes">Here's the app running in Chrome
+
+Let's hope this works because whoever said never present with children or animals
+obviously has never demonstrated code!
+
+I'd have loved to show you this on a phone but it's not very practical
+
+Open the Application tab of the developer tools
+
+You'll see we have a Manifest section which shows our application settings
+
+There's Clear Storage for well, I think you can guess
+
+Going down to Cache Storage, we have
+the cached files and
+the cached data from Ajax calls
+
+but let's go back to the Service Worker section
+this shows what your service worker is doing
+and it also allows us to emulate going offline
+
+when we refresh, our application still works
+these are yesterdays rates and they'll update
+in the next few hours if we go online.
+
+There are some errors shown here because we're not handling network failures
+but I promise you it all works
+honest
+    </div>
+  </div>
+
+
+  <div id="pwasucceed" class="step" data-x="0" data-y="3000" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0">
+    <h2>BUT&hellip;</h2>
+
+    <p>Will PWAs succeed&hellip;</p>
+    <p>&hellip;when other solutions didn't?</p>
+
+
+    <div class="notes">So we built an app-like experience with all the benefits of the web.
+
+I'm sure some of you are thinking that we've seen this sort of thing before.
+
+something new comes out every year which supersedes what came before.
+
+Absolutely.
+
+Progressive web apps are new.
+
+There's no guarantee they'll remain in their current form or be viable over the long term.
+    </div>
+  </div>
+
+
+  <div id="pwabenefits" class="step" data-x="0" data-y="3500" data-z="0" data-scale="1" data-rotate-x="-45" data-rotate-y="0" data-rotate-z="0">
+    <h2>Positive Progressive Points</h2>
+
+    <ul>
+      <li>it can enhance your existing web site or app</li>
+      <li>the level of enhancement is up to you</li>
+      <li>Google is dropping Chrome Apps for PWAs</li>
+      <li>Mozilla, Opera and Microsoft are adopting PWAs</li>
+    </ul>
+
+    <div class="notes">but there are several positive points
+
+- first is that it's an enhancement to your existing web site or app
+
+- you don't need full scale redevelopment
+
+- you don't need to develop a single page application or anything special
+
+- you can just apply it to your existing framework or technologies
+
+and the level of enhancement is up to you.
+
+Google makes numerous recommendations about using material design and
+making an app appear as native
+
+but you can ignore all that - the decision is yours
+
+you could have an "app" which does nothing more than cache the most popular pages on your web site
+
+Google is pushing forward so strongly that they announced in August
+they're dropping packaged Chrome apps for PWAs
+
+And the other browser vendors are behind this.
+    </div>
+  </div>
+
+
+  <div id="apple" class="step" data-x="0" data-y="4000" data-z="0" data-scale="1" data-rotate-x="-135" data-rotate-y="0" data-rotate-z="-360">
+    <h2>The elephant in the room: Apple</h2>
+
+    <svg viewBox="0 0 600 436" xmlns="http://www.w3.org/2000/svg">
+
+      <image x="0" y="0" width="600" height="436" xlink:href="images/elephant.png" />
+      <image x="280" y="60" width="240" height="240" xlink:href="images/apple.png" />
+
+    </svg>
+
+    <div class="notes">Except one
+
+OK, so we don't know about Apple's intentions
+but we never do.
+
+They have made some promising noises
+their 5-year plan state "we should do it"
+there's no certainty they'll back Progressive Web Apps
+
+native apps raise billions of dollars for them
+and they've got some hefty tax bills to pay
+
+but does it matter?
+
+Progressive Web Apps still work on Safari -
+
+they're an enhancement
+you just won't get offline and easy installation capabilities.
+
+And I suspect Apple will have to adopt it eventually
+they don't want the Android experience becoming better than iOS
+
+But that all depends on us adopting
+Progressive Web Apps
+    </div>
+  </div>
+
+
+  <div id="greatapps" class="step" data-x="2000" data-y="3000" data-z="0" data-scale="2" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0">
+    <h2>Let's make great web apps!</h2>
+
+    <ul class="cols">
+      <li>push notifications</li>
+      <li>network availability</li>
+      <li>audio/video capture</li>
+      <li>augmented reality</li>
+      <li>speech recognition</li>
+      <li>Bluetooth</li>
+      <li>USB</li>
+      <li>NFC</li>
+      <li>proximity</li>
+      <li>ambient light</li>
+      <li>geo-location</li>
+      <li>orientation</li>
+      <li>vibration</li>
+      <li>battery status</li>
+      <li>file access</li>
+      <li>contacts access</li>
+    </ul>
+
+    <div class="notes">And this is just the start.
+
+Many of these APIs are ready now and more are coming soon.
+
+The push notifications API is the most exciting
+
+it allows your system to send notifications to a user's device
+even when your app isn't running at the time
+
+it does that via further service worker events
+
+It is supported in Chrome on Android now but the standards haven't been agreed
+
+you need to sign up for a Google service which may raise a few privacy issues
+and Google often take these services down without telling us
+    </div>
+  </div>
+
+
+  <div id="hardpart" class="step" data-x="2000" data-y="3000" data-z="0" data-scale="1" data-rotate-x="90" data-rotate-y="0" data-rotate-z="0">
+    <h2>The hard parts&hellip;</h2>
+
+    <ul>
+      <li>making stuff users want</li>
+      <li>interactive UI with fluid animations</li>
+      <li>making it work across multiple devices</li>
+      <li>defining a caching strategy</li>
+      <li>using effective client-side storage</li>
+    </ul>
+
+    <p><em>&hellip;but the same is true for native apps!</em></p>
+
+    <div class="notes">Progressive Web Apps finally offer us a reasonable alternative to native apps
+
+We'll always need native apps but
+the distinction between native and the web is increasingly blurred
+
+of course, none of this technology makes it easier to build apps people actually want to use
+
+but that's hard no matter what we do.
+    </div>
+  </div>
+
+
+  <div id="recommendations" class="step" data-x="4000" data-y="4000" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="360">
+    <h2>Development recommendations</h2>
+
+    <ul>
+      <li>try examples</li>
+      <li>put service worker and manifest files in the root</li>
+      <li>test in Chrome 52+</li>
+      <li>use incognito mode</li>
+      <li>test on real devices</li>
+    </ul>
+
+    <div class="notes">so I have a few recommendations which may help
+
+service worker code can be confusing
+Google has a worked sample application which shows how they're developed
+
+remember to place your service worker and manifest files in your web root folder
+
+use Chrome 52 or above for testing
+which should be fine because the latest is version 53
+
+the Application tab in developer tools allows you to inspect
+the manifest and service worker then emulate going offline
+
+There are service worker tools in Firefox
+They're not part of the standard dev toolset
+and they don't appear to allow you to use localhost
+but they'll become better.
+
+Incogito mode is really handy for testing your app
+nothing will be cached after you unload the tab.
+
+And you can debug on a real device over USB
+Use the "Inspect Devices" menu in Chrome's inspector
+that's how I managed to install my currency exchange app on a phone
+    </div>
+  </div>
+
+
+  <div id="links" class="step" data-x="5000" data-y="5000" data-z="0" data-scale="0.5" data-rotate-x="0" data-rotate-y="0" data-rotate-z="180">
+    <h2>Useful links</h2>
+
+    <ul>
+      <li><a href="https://github.com/craigbuckler/">this presentation</a></li>
+      <li><a href="https://github.com/craigbuckler/">CurEx sample application</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/your-first-pwapp/#0">Your First Progressive Web App</a></li>
+      <li><a href="https://developer.mozilla.org/docs/Web/API/Service_Worker_API/Using_Service_Workers">Using Service Workers</a></li>
+      <li><a href="https://serviceworke.rs/">Service Worker Cookbook</a></li>
+      <li><a href="https://developer.mozilla.org/docs/Web/API/CacheStorage">CacheStorage API</a></li>
+      <li><a href="https://developer.mozilla.org/docs/Web/API/Fetch_API">Fetch API</a></li>
+      <li><a href="https://serviceworke.rs/">Service Worker Cookbook</a></li>
+      <li><a href="https://pwa.rocks/">PWA.rocks demonstration apps</a></li>
+    </ul>
+
+    <div class="notes">There are a lot of articles and resources on the web
+although many articles are more philosophical than technical.
+
+Here are some useful links to get you started, though.
+    </div>
+  </div>
+
+
+  <div id="end" class="step" data-x="5000" data-y="6000" data-z="0" data-scale="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0">
+    <h1>Progressive Web Apps</h1>
+    <h2>Get coding!</h2>
+
+    <p>By Craig Buckler</p>
+    <p>@craigbuckler</p>
+    <p>craigbuckler.com</p>
+
+    <div class="notes">Thanks for coming along.
+
+I hope you found this useful.
+I think we have time for some questions
+but you can also grab me later
+or contact me on twitter.
+
+Thanks very much
+    </div>
+  </div>
+
+
+</div>
+<script src="js/prism.js"></script>
+<script src="js/impress.js"></script>
+<script src="js/impressConsole.js"></script>
+<script>impress().init();impressConsole().init();</script>
+</body>
+</html>
