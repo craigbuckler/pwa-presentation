@@ -73,15 +73,13 @@ a new option available to mobile app developers
     <div class="notes">Today, mobile developers have three main choices
 
 first, there's native app development:
-
 developing programs for the device itself generally in Swift, Objective-C or Java depending on whether it's iOS or Android
 
-it used to be a lot more diverse but I don't think anyone's bothering to support Blackberry or Windows these days!
+used to be a more diverse no one bothering with Blackberry or Windows?
 
 Do we have any native app developers in?
 
-On the flip side we have web apps.
-
+On the flip side we have web apps:
 This is a single application served from the web which run in a browser and work on any device. In theory.
 
 Any web developers in?
@@ -160,7 +158,6 @@ there are also options if you'd prefer not to use JavaScript on the client
 our web apps can contain as much nudity and swearing as we like
 
 Clients often think an AppStore presence is important
-
 very few people actively use or install native apps
 the majority use no more than three apps on average
 and they install none per month
@@ -287,20 +284,17 @@ and everyone went 'ooo'
       <li>work offline</li>
     </ol>
 
-    <div class="notes">So what are they?
-think of it as an evolution beyond running an app in a browser tab
+    <div class="notes">So what are they? Think evolution beyond running an app in a browser tab
 
 The reason it's called progressive:
 user experience becomes better as the capabilities of the device improve
 
-It's up to you how you implement them but, in general
-users can get a native app-like experience.
+It's up to you how you implement them but, in general users can get a native app-like experience.
 even though it's still a web application
 
-When you visit a progressive web app for the first time it downloads all the files it needs to run so the next launch can be instantaneous
+Visit app first time it downloads all the files it needs to run. Next launch instantaneous.
 
 But when you visit a web app for the second time, the browser will prompt you to install it.
-
 That adds an icon to your home screen in a single click
 you don't have to go through the browser menu
 
@@ -310,8 +304,7 @@ then realising an app was rubbish because you've already tried it.
 When you click the icon, you see a splash screen as your app loads
 and it launches with whatever browser UI you decide is necessary
 
-They're fast.
-A cold launch following a phone reboot is a little slower that a native app because it's starting the browser
+They're fast. A cold launch little slower than native because it's starting a browser
 but a warm start can be faster than native which is astounding
 
 And finally, they work offline and you have full control over the caching options.
@@ -407,7 +400,7 @@ it intercepts your application's network calls and can either
 - or data from the local cache.
 
 it's a standard web worker script which means it runs on a separate thread
-and has no direct access to the page DOM or other objects and APIs.
+and has no direct access to the page DOM and other objects.
 
 It must live in your web root because
 it can only cache assets in the same folder or lower.
@@ -415,8 +408,8 @@ it can only cache assets in the same folder or lower.
 And service workers are the reason we need HTTPS.
 because they decide how network calls is handled
 
-Imagine what could happen if some nasty person managed to inject one into your site
-it would have full control and could serve whatever content it liked.
+Imagine what could happen if a nasty person managed to inject one into your site
+it would have full control and could serve whatever content they liked.
 </div>
   </div>
 
@@ -446,11 +439,11 @@ it would have full control and could serve whatever content it liked.
 
 The browser loads it every time you go online or it'll fall back to a cached version.
 
-It has a number of events you can create handlers for.
+It has three main events you can create handlers for.
 
 And you should note it's all JavaScript promise based
 which should make asynchronous calls a little easier
-although I'm not always convinced by that
+(although I'm not always convinced by that)
 
 The first type is an installation event
 this occurs when the browser loads your app for the first time.
@@ -459,7 +452,8 @@ Here, we use the CacheStorage API to open a cache named mycache01
 
 and we add the files we need to ensure the app works offline
 
-this is known as your application shell and should include the static assets such as css, javascript and images.
+this is known as your application shell and should include the static assets
+CSS, JavaScript and images.
 
 it could also have your basic HTML template or page
 
@@ -475,17 +469,17 @@ even though they're referring to the same file
 
     <pre><code class="language-javascript line-numbers">self.addEventListener('activate', function(e) {
 
-	e.waitUntil(
-		caches.keys().then(function(keyList) {
-			return Promise.all(keyList.map(function(key) {
-				if (key !== 'mycache01') {
-					return caches.delete(key);
-				}
-			}));
-		})
-	);
+  e.waitUntil(
+    caches.keys().then(function(keyList) {
+      return Promise.all(keyList.map(function(key) {
+        if (key !== 'mycache01') {
+          return caches.delete(key);
+        }
+      }));
+    })
+  );
 
-	return self.clients.claim();
+  return self.clients.claim();
 
 });</code></pre>
 
@@ -519,18 +513,20 @@ we could call the cache a different name and the app will re-fetch all static as
 });</code></pre>
 
     <div class="notes">Finally, we have the fetch event
+which is the trickiest to understand
 
 This intercepts file and Ajax requests and responds accordingly.
 
 It uses the Fetch API which is effectively the next version of XMLHttpRequest
 
 Again, you can do what you like
-but a simple option is to cache these responses so they're available offline.
+but a simple option is to cache Ajax responses so they're available offline.
 
 That's what our service worker does here:
 it completes a request and puts the response in the cache
+before returning it to the main application
 
-And that's our service worker done.
+So that's a simple service worker but your application can be different depending on the requirements
     </div>
   </div>
 
@@ -570,7 +566,9 @@ if ('caches' in window) {
 var req = new XMLHttpRequest();
 req.open('GET', url);</code></pre>
 
-    <div class="notes">So our service worker was simple and just cached a response.
+    <div class="notes">So our service worker is simple. It just:
+- cached the static assets and
+- previous Ajax responses.
 
 What we can now do is check whether a response is cached before we make an Ajax call.
 
@@ -582,7 +580,7 @@ So what happens is our app starts instantly if we have cached data
 But we can then make a real web service call to check if there's any updates.
 
 So this caching policy is probably the hardest part of designing your web app
-deciding when to cache and at what point you use the cached version can be tricky.
+deciding what to cache, when to do it and when you use cached data can be tricky.
 
 Enough of the theory - let's look at a demonstration.
     </div>
@@ -630,29 +628,22 @@ or votes to leave the EU
   <div id="curex-demo" class="step" data-x="6000" data-y="1500" data-z="0" data-scale="2" data-rotate-x="0" data-rotate-y="0" data-rotate-z="90">
     <h2>DEMONSTRATION</h2>
 
-    <div class="notes">Here's the app running in Chrome
-
-Let's hope this works because whoever said never present with children or animals
-obviously has never demonstrated code!
-I'd have loved to show you this on a phone but it's not very practical
+    <div class="notes">Here's the app running in Chrome. Let's hope this runs.
+Whoever said never work with children or animals obviously never demonstrated code!
 
 Open the Application tab of the developer tools
-
 You'll see we have a Manifest section which shows our application settings
 
 There's Clear Storage for well, I think you can guess
 
 Going down to Cache Storage, we have
-the cached files and
-the cached data from Ajax calls
+the cached files and the cached data from Ajax calls
 
-but let's go back to the Service Worker section
-this shows what your service worker is doing
+but let's go back to the Service Worker section - shows what it's up to
 and it also allows us to emulate going offline
 
 when we refresh, our application still works
-these are yesterdays rates and they'll update
-in the next few hours if we go online.
+these are yesterdays rates and they'll update - in the next few hours if we go online.
 
 There are some errors shown here because we're not handling network failures
 but I promise you it all works - honest
@@ -660,8 +651,7 @@ but I promise you it all works - honest
 You can actually run this on a real phone by connecting over USB
 and using More Tools - Inspect devices
 
-You can set up port forwarding to your local server
-then load the page on your device
+You can set up port forwarding to your local server then load the page on your device
 and hit inspect to look at what's happening
     </div>
   </div>
@@ -694,7 +684,7 @@ There's no guarantee they'll remain in their current form or be viable over the 
     <h2>Positive Progressive Points</h2>
 
     <ul>
-      <li>it can enhance your existing web site or app</li>
+      <li>it can enhance your existing web site/app</li>
       <li>the level of enhancement is up to you</li>
       <li>Google is dropping Chrome Apps for PWAs</li>
       <li>Mozilla, Opera and Microsoft are adopting PWAs</li>
@@ -703,6 +693,8 @@ There's no guarantee they'll remain in their current form or be viable over the 
     <div class="notes">but there are several positive points
 
 - first is that it's an enhancement to your existing web site or app
+you can do that even if you have a native app
+it's just going to make the web experience faster and better
 
 - you don't need full scale redevelopment
 
@@ -716,7 +708,6 @@ Google makes numerous recommendations about using material design and
 making an app look as though it's native
 
 but you can ignore all that - the decision is yours
-
 you could have an "app" which does nothing more than cache the most popular pages on your web site
 
 Google is pushing Progressive Web Apps hard.
@@ -748,17 +739,16 @@ their 5-year plan state "we should do it"
 there's no certainty they'll back Progressive Web Apps
 
 native apps raise billions of dollars for them
-and they've got some hefty tax bills to pay
+and - bless them - they've got some hefty tax bills to pay
 
 but does it matter?
 
-Progressive Web Apps still work on Safari -
-
 they're an enhancement
-you just won't get offline and easy installation capabilities.
+Progressive Web Apps will still run on Safari
+you just won't get offline and easy installation capabilities
 
 And I suspect Apple will have to adopt it eventually
-they don't want the Android experience becoming better than iOS
+they don't want the Android experience becoming noticeably better than iOS
 
 But that all depends on us adopting these technologies
     </div>
@@ -874,7 +864,7 @@ that's how I managed to install my currency exchange app on a phone
   <div id="links" class="step" data-x="5000" data-y="5000" data-z="0" data-scale="0.5" data-rotate-x="0" data-rotate-y="0" data-rotate-z="180">
     <h2>Useful links</h2>
 
-    <ul>
+    <ul class="links">
       <li><a href="https://github.com/craigbuckler/pwa-presentation/">this presentation</a></li>
       <li><a href="https://github.com/craigbuckler/curex/">CurEx sample application</a></li>
       <li><a href="https://codelabs.developers.google.com/codelabs/your-first-pwapp/">Your First Progressive Web App</a></li>

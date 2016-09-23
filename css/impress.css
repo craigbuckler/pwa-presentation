@@ -138,6 +138,17 @@ em {
   font-style: italic;
 }
 
+.links {
+	font-size: 0.6em;
+	list-style-type: none;
+}
+
+.links li {
+	padding: 0 0 0.3em 0;
+	margin: 0;
+	border-top: 1px solid #339;
+}
+
 a {
   text-decoration: none;
   color: #fff;
@@ -146,7 +157,7 @@ a {
 a:after {
   display: block;
   content: attr(href);
-  font-size: 0.5em;
+  font-size: 0.8em;
   color: #ff9;
 }
 

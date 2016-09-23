@@ -3,7 +3,7 @@
     padding: 0;
     margin: 0;
     font-family: "Segoe UI", arial, sans-serif;
-    font-size: 1.6vw;
+    font-size: 1.5vw;
 }
 
 #impressconsole div#console {
@@ -24,7 +24,7 @@
 
 #impressconsole div#views {
     left: 0;
-    right: 33vw;
+    right: 28vw;
     overflow: hidden;
 }
 
@@ -35,7 +35,7 @@
 }
 
 #impressconsole div#notes {
-    left: 33vw;
+    left: 28vw;
     right: 0;
     overflow-x: hidden;
     overflow-y: auto;
@@ -62,15 +62,16 @@
 
 #impressconsole iframe#slideView {
     top: 0;
-    width: 32vw;
-    height: 32vh;
+    width: 27vw;
+    height: 27vh;
 }
 
 #impressconsole iframe#preView {
+		display: none;
     opacity: 0.7;
-    top: 33vh;
-    width: 28vw;
-    height: 28vh;
+    top: 28vh;
+    width: 25vw;
+    height: 25vh;
 }
 
 #impressconsole div#controls {
