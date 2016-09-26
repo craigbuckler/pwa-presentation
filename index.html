@@ -73,14 +73,15 @@ a new option available to mobile app developers
     <div class="notes">Today, mobile developers have three main choices
 
 first, there's native app development:
-developing programs for the device itself generally in Swift, Objective-C or Java depending on whether it's iOS or Android
-
-used to be a more diverse no one bothering with Blackberry or Windows?
-
 Do we have any native app developers in?
 
+developing programs on the device in Swift, Objective-C or Java depending on whether it's iOS or Android
+
+used to be a more diverse: is anyone bothering with Blackberry or Windows?
+
 On the flip side we have web apps:
-This is a single application served from the web which run in a browser and work on any device. In theory.
+This is a single application served from the web which runs in a browser and works on any device
+In theory.
 
 Any web developers in?
 OK, just so you know I'm totally biased - I'm firmly in the web circle.
@@ -90,7 +91,7 @@ React Native, Cordova, PhoneGap, Appcelerator.
 
 You generally use web technologies but compile them to multiple native platform code
 
-Which gives all the pros and cons of both.
+Which gives all the pros of both. And many of the cons.
 
 Anyone developing hybrid apps?
 Good. Those hybrid people scare me!
@@ -109,9 +110,10 @@ Good. Those hybrid people scare me!
 			<li>sandboxed execution</li>
 		</ul>
 
-		<div class="notes">There are situations where native apps are essential but I'm a web guy.
+		<div class="notes">Native apps will be the best option in some cases.
 
-The web has many benefits for users
+But I'm a web guy.
+and I like the benefits it brings users
 
 - you can find a web app via Google or any search engine
 
@@ -143,11 +145,10 @@ Just saying that if the government wanted to spy on you it would be a near perfe
 			<li>bypass the AppStores</li>
 		</ul>
 
-		<div class="notes">Being selfish and lazy there are many benefits for us developers
+		<div class="notes">Being selfish and lazy there are many benefits for developers
 
 - we need only create a single application
-
-- we can use media queries to target devices with different screen sizes
+- we can use media queries to adapt to devices with different screen sizes
 
 - we can use any server language we choose
 there are also options if you'd prefer not to use JavaScript on the client
@@ -158,13 +159,14 @@ there are also options if you'd prefer not to use JavaScript on the client
 our web apps can contain as much nudity and swearing as we like
 
 Clients often think an AppStore presence is important
+it probably was in the early days but today
 very few people actively use or install native apps
 the majority use no more than three apps on average
 and they install none per month
 
-finding apps in an AppStore can be difficult
+that's partly because finding apps in an AppStore can be difficult
 
-while some can become incredibly popular very quickly
+while some apps can become incredibly popular very quickly
 the majority never reach beyond a few hundred installations
 
 but despite all the benefits of the web,
@@ -179,6 +181,7 @@ clients started saying this 5 or 6 years ago
     <div class="notes">"We want an app"
 
 It was a bit disheartening for developers like me
+
 I felt we'd escaped the confines of desktop development
 and were now being asked to return to a more restrictive environment
 
@@ -199,7 +202,7 @@ OK, so few clients knew the difference between a native or web app
     <div class="notes">but what they did know:
 
 user retention could be more difficult
-because web apps didn't have an icon on the user's home screen
+web apps didn't have an icon on the user's home screen
 
 native apps seemed faster than web alternatives
 
@@ -211,8 +214,8 @@ and our wishes were answered
 
 mobile browsers became better and faster
 
-we were given 157 clunky meta tags
-to target multiple devices and resolutions
+we were given 357 clunky meta tags
+to target multiple devices and icons
 
 and we got some nice APIs to handle things like
 touch, full-screen, battery status and geo-location
@@ -251,7 +254,7 @@ if one file needed updating you had to update them all
 
 if one failed to download the whole app could fall over
 
-and it was hard to develop
+and it was confusing to develop
 so few of us bothered
     </div>
   </div>
@@ -284,7 +287,7 @@ and everyone went 'ooo'
       <li>work offline</li>
     </ol>
 
-    <div class="notes">So what are they? Think evolution beyond running an app in a browser tab
+    <div class="notes">So what are they? It's an evolution beyond running an app in a browser tab
 
 The reason it's called progressive:
 user experience becomes better as the capabilities of the device improve
@@ -301,7 +304,7 @@ you don't have to go through the browser menu
 There's no hunting the AppStore, accepting permissions, installing, waiting
 then realising an app was rubbish because you've already tried it.
 
-When you click the icon, you see a splash screen as your app loads
+When you click this icon, you see a splash screen as your app loads
 and it launches with whatever browser UI you decide is necessary
 
 They're fast. A cold launch little slower than native because it's starting a browser
@@ -310,7 +313,7 @@ but a warm start can be faster than native which is astounding
 And finally, they work offline and you have full control over the caching options.
 
 OK, so it's not a single technology - nothing is ever that simple
-so let's look at what code you need...
+let's look at what code you need...
     </div>
   </div>
 
@@ -343,7 +346,7 @@ but don't worry - there's only 50 slides or so
 
 The first step is easy and it's an application manifest.
 
-This is a JSON file in your application root which describes
+which is a JSON file in your application root which describes
 the name, colours, icons, orientation and other display options
 
 you can do things like hide the URL bar and go full-screen
@@ -435,15 +438,14 @@ it would have full control and could serve whatever content they liked.
 
 }</code></pre>
 
-    <div class="notes">So the service worker is a single JavaScript file which lives in your root.
-
+    <div class="notes">The service worker is a single JavaScript file
 The browser loads it every time you go online or it'll fall back to a cached version.
-
-It has three main events you can create handlers for.
 
 And you should note it's all JavaScript promise based
 which should make asynchronous calls a little easier
 (although I'm not always convinced by that)
+
+It has three main events you can create handlers for.
 
 The first type is an installation event
 this occurs when the browser loads your app for the first time.
@@ -457,7 +459,7 @@ CSS, JavaScript and images.
 
 it could also have your basic HTML template or page
 
-And note you should include all alternative URLs
+Note you should include all alternative URLs
 so we reference a single slash and index.html on lines 7 and 8
 even though they're referring to the same file
     </div>
@@ -517,7 +519,7 @@ which is the trickiest to understand
 
 This intercepts file and Ajax requests and responds accordingly.
 
-It uses the Fetch API which is effectively the next version of XMLHttpRequest
+We can use the Fetch API which is a simpler promise-based version of XMLHttpRequest
 
 Again, you can do what you like
 but a simple option is to cache Ajax responses so they're available offline.
@@ -541,7 +543,7 @@ if ('serviceWorker' in navigator) {
     .then(function() { console.log('service worker registered'); });
 }</code></pre>
 
-    <div class="notes">The next step is to load our service worker in our application's main javascript file
+    <div class="notes">The next step is to load our service worker from our application's main javascript file
 
 We can detect the browser supports service workers and register it.
 </div>
@@ -566,11 +568,11 @@ if ('caches' in window) {
 var req = new XMLHttpRequest();
 req.open('GET', url);</code></pre>
 
-    <div class="notes">So our service worker is simple. It just:
+    <div class="notes">So this service worker just:
 - cached the static assets and
 - previous Ajax responses.
 
-What we can now do is check whether a response is cached before we make an Ajax call.
+What we can now do is check whether a response is cached before we make an Ajax call from our app
 
 In lines 5 to 7 we do exactly that
 we pass any cached JSON results to an updateApp function which updates our page accordingly.
@@ -700,7 +702,7 @@ it's just going to make the web experience faster and better
 
 - you don't need to develop a single page application or anything special
 
-- you can just apply it to your existing framework or technologies
+- you can just apply it to your existing site and technologies
 
 and the level of enhancement is up to you.
 
@@ -738,7 +740,7 @@ They have made some promising noises
 their 5-year plan state "we should do it"
 there's no certainty they'll back Progressive Web Apps
 
-native apps raise billions of dollars for them
+native apps raise billions of dollars for Apple
 and - bless them - they've got some hefty tax bills to pay
 
 but does it matter?
