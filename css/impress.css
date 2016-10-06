@@ -139,12 +139,12 @@ em {
 }
 
 .links {
-	font-size: 0.6em;
+	font-size: 0.8em;
 	list-style-type: none;
 }
 
 .links li {
-	padding: 0 0 0.3em 0;
+	padding: 0.2em 0 0.4em 0;
 	margin: 0;
 	border-top: 1px solid #339;
 }
@@ -157,7 +157,7 @@ a {
 a:after {
   display: block;
   content: attr(href);
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #ff9;
 }
 
